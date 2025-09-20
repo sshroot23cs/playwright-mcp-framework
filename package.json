@@ -1,0 +1,43 @@
+{
+  "name": "playwright-mcp-framework",
+  "version": "1.0.0",
+  "description": "Advanced UI automation framework using Playwright with MCP server integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:mcp": "npx playwright test --config=playwright-mcp.config.js",
+    "test:e2e": "npx playwright test tests/e2e",
+    "test:visual": "npx playwright test tests/visual",
+    "test:performance": "npx playwright test tests/performance",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "mcp:start": "node src/mcp/server.js",
+    "mcp:connect": "node src/mcp/client.js",
+    "setup-mcp": "npm install && npx playwright install",
+    "report": "npx playwright show-report",
+    "ci:test": "npx playwright test --reporter=github",
+    "deploy:cloud": "npm run build && npm run deploy"
+  },
+  "keywords": [
+    "playwright",
+    "mcp",
+    "automation",
+    "testing",
+    "e2e",
+    "visual-testing",
+    "performance"
+  ],
+  "author": "Sushrut Holey <sshroot23cs@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "allure-playwright": "^2.10.0",
+    "dotenv": "^16.0.0"
+  },
+  "dependencies": {
+    "ws": "^8.14.0",
+    "express": "^4.18.0",
+    "lodash": "^4.17.0",
+    "moment": "^2.29.0"
+  }
+}
