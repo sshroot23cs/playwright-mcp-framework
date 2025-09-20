@@ -1,0 +1,47 @@
+# Prometheus configuration for local monitoring
+# Mirrors Azure Log Analytics functionality
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Docker containers metrics
+  - job_name: 'docker-exporter'
+    static_configs:
+      - targets: ['docker-exporter:9100']
+
+  # Selenium Grid Hub
+  - job_name: 'selenium-hub'
+    static_configs:
+      - targets: ['selenium-hub:4444']
+    metrics_path: '/wd/hub/status'
+    scrape_interval: 30s
+
+  # Nginx file server
+  - job_name: 'file-server'
+    static_configs:
+      - targets: ['file-server:80']
+    metrics_path: '/health'
+    scrape_interval: 30s
+
+  # Pytest runner health check
+  - job_name: 'pytest-runner'
+    static_configs:
+      - targets: ['pytest-runner:8080']
+    scrape_interval: 60s
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093

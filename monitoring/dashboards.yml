@@ -1,0 +1,18 @@
+# Grafana Dashboard Configuration for Local Docker Setup
+# This file contains Grafana dashboard definitions for monitoring the pytest UI framework
+
+version: 1
+
+providers:
+  - name: 'default'
+    orgId: 1
+    folder: 'Local Testing'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards
+
+# Dashboard JSON configurations would be placed in this directory structure
+# The actual dashboard files are defined in separate JSON files
