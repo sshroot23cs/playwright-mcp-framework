@@ -1,0 +1,36 @@
+# Playwright Docker Configuration for MCP Framework
+# Optimized for Playwright testing with Node.js
+
+FROM mcr.microsoft.com/playwright:v1.55.0-jammy
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json* ./
+
+# Install Node.js dependencies
+RUN npm install
+
+# Install Playwright browsers
+RUN npx playwright install
+
+# Copy the entire project
+COPY . .
+
+# Create directories for reports and logs
+RUN mkdir -p reports/html reports/allure-results logs downloads
+
+# Set environment variables
+ENV CI=true
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms/playwright
+
+# Expose ports for debugging
+EXPOSE 8080 9323
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD npx playwright --version || exit 1
+
+# Default command - can be overridden
+CMD ["npx", "playwright", "test", "--reporter=html"]
