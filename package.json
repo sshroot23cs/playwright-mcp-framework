@@ -6,14 +6,22 @@
   "scripts": {
     "test": "npx playwright test",
     "test:e2e": "npx playwright test tests/e2e",
-    "test:visual": "npx playwright test tests/visual",
-    "test:performance": "npx playwright test tests/performance",
+    "test:search": "npx playwright test tests/e2e/search-functionality.spec.js",
+    "test:ecommerce": "npx playwright test tests/e2e/ecommerce-tests.spec.js",
+    "test:forms": "npx playwright test tests/e2e/form-testing.spec.js",
+    "test:finance": "npx playwright test tests/e2e/finance-e2e.spec.js",
+    "test:performance": "npx playwright test tests/e2e/performance-accessibility.spec.js",
+    "test:api": "npx playwright test tests/e2e/api-integration.spec.js",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
     "setup": "npm install && npx playwright install",
     "report": "npx playwright show-report",
     "ci:test": "npx playwright test --reporter=github",
-    "deploy:cloud": "npm run build && npm run deploy"
+    "test:parallel": "npx playwright test --workers=4",
+    "test:chrome": "npx playwright test --project=chromium",
+    "test:firefox": "npx playwright test --project=firefox",
+    "test:webkit": "npx playwright test --project=webkit"
   },
   "keywords": [
     "playwright",

@@ -76,23 +76,36 @@ Ensure your AI assistant has the Playwright MCP server configured in `mcp.json`:
 # Run all tests
 npm test
 
-# Run E2E tests specifically
-npm run test:e2e
+# Run specific test suites
+npm run test:search      # Search functionality tests
+npm run test:ecommerce   # E-commerce workflow tests
+npm run test:forms       # Form validation tests
+npm run test:finance     # Financial data tests
+npm run test:performance # Performance & accessibility tests
+npm run test:api         # API integration tests
 
-# Run tests with visual output
-npm run test:headed
+# Run tests with specific browsers
+npm run test:chrome      # Chromium only
+npm run test:firefox     # Firefox only
+npm run test:webkit      # WebKit only
 
-# Run tests in debug mode
-npm run test:debug
+# Advanced testing options
+npm run test:headed      # Run with visible browser
+npm run test:debug       # Debug mode with step-by-step execution
+npm run test:ui          # Interactive UI mode
+npm run test:parallel    # Parallel execution with 4 workers
 
 # Generate and view test reports
 npm run report
 ```
 
 ### Available Test Suites
-- **Stock Search Workflow**: Tests basic search functionality
-- **Multiple Stock Searches**: Tests searching across different stocks (GOOGL, MSFT, TSLA)
-- **Responsive Design**: Tests across desktop, tablet, and mobile viewports
+- **📈 Finance Tests**: Stock search workflows and financial data testing
+- **🔍 Search Tests**: Google search functionality and search features
+- **🛒 E-commerce Tests**: Shopping cart, product browsing, and checkout flows
+- **📝 Form Tests**: Form validation, submission, and user interactions
+- **⚡ Performance Tests**: Page performance, accessibility, and Core Web Vitals
+- **🔌 API Tests**: REST/GraphQL API testing and backend integration
 
 ## 🧪 Test Examples
 
