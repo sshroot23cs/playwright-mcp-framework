@@ -5,15 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:mcp": "npx playwright test --config=playwright-mcp.config.js",
     "test:e2e": "npx playwright test tests/e2e",
     "test:visual": "npx playwright test tests/visual",
     "test:performance": "npx playwright test tests/performance",
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
-    "mcp:start": "node src/mcp/server.js",
-    "mcp:connect": "node src/mcp/client.js",
-    "setup-mcp": "npm install && npx playwright install",
+    "setup": "npm install && npx playwright install",
     "report": "npx playwright show-report",
     "ci:test": "npx playwright test --reporter=github",
     "deploy:cloud": "npm run build && npm run deploy"
@@ -35,8 +32,6 @@
     "dotenv": "^16.0.0"
   },
   "dependencies": {
-    "ws": "^8.14.0",
-    "express": "^4.18.0",
     "lodash": "^4.17.0",
     "moment": "^2.29.0"
   }
